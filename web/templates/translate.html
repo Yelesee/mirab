@@ -1,0 +1,29 @@
+{% extends "checkTemplate.html"%}
+{% load staticfiles %}
+
+{% block content %}
+
+    <div class="container">
+        <h2 align="center">translate</h2>
+        <div class="span-20 prepend-2 append-2 last">
+            <form action="/tran/" method="post">
+              <div class="input">
+                <label for="text">text: </label>
+                <textarea id="text" name="text" value="{{ text }}"></textarea>
+              </div>
+              <div class="input">
+                <input type="submit" value="translate">
+              </div>
+            </form>
+        </div>
+        {% if text %}
+        <div class="span-20 prepend-2 append-2 last" style="margin-top:15px;font-family:helvetica;font-size:2em">
+        <h1 style="font-size:1em">resault :</h1>
+          {{text}}
+        </div>
+        {% endif %}
+    </div>
+
+
+{% endblock %}
+

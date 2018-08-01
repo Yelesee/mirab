@@ -1,0 +1,76 @@
+{% extends "dashboadTemplate.html"%}
+{% load staticfiles %}
+{% block content %}
+<!-- header logo: style can be found in header.less -->
+<div class="row" style="text-align:center">
+	<div>
+		<div class="col-md-12">
+			<div class="panel">
+				<header class="panel-heading">ثبت مطالعات جدید</header>
+				<div class="panel-body">
+					<div class="col-md-1"></div>
+					<form method="post" action="/study/newStudy/" class="col-md-10">
+						<div class="col-md-11">
+							<div class="col-md-4">
+								<label for="hesaban">حسابان :</label>
+								<input id="hesaban" type="text" name="hesaban" value="{{ hesaban }}">
+							</div>
+							<div class="col-md-4">
+								<label for="fizic">فیزیک :</label>
+								<input type="text" name="fizic" value="{{ fizic }}">
+								</div>
+							<div class="col-md-4">
+								<label for="shimi">شیمی :</label>
+								<input type="text" name="shimi" value="{{ shimi }}">
+							</div>
+						</div>
+						<div class="col-md-1">
+							<input type="submit" value="ارسال">
+						</div>
+					</form>
+					<div class="col-md-1"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row" style="text-align:center">
+	<div class="col-md-12">
+		<div class="panel">
+			<header class="panel-heading">جدول مطالعات</header>
+			<div class="panel-body">
+				<table class="table table-bordered">
+					<tbody>
+						<tr>
+							<td>درس / شماره</td>
+							{% for study in studies %}
+								<td>{{ forloop.counter }}</td>
+							{% endfor %}
+						</tr>
+						<tr>
+							<td>حسابان</td>
+							{% for study in studies %}
+								<td>{{ study.hesaban }}</td>
+							{% endfor %}
+						</tr>
+						<tr>
+							<td>فیزیک</td>
+							{% for study in studies %}
+								<td>{{ study.fizic }}</td>
+							{% endfor %}
+						</tr>
+						<tr>
+							<td>شیمی</td>
+							{% for study in studies %}
+								<td>{{ study.shimi }}</td>
+							{% endfor %}
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ./wrapper -->
+{% endblock %}
