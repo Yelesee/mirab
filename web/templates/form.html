@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Mirab</title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <p>به نام خدا</p>
+      </div>
+    </header>
+    <div class="container">
+      <form action="/response/" method="post">
+        <div class="form-row" id="1">
+          <div class="form-row col-md-12">
+            <div class="form-group col-md-3">
+              <label for="inputnums">Enter the number of your inputs:</label>
+              <input type="text" class="form-control" id="inputnums" name="inputnums" placeholder="Enter inputnums">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="outputnums">Enter the number of your outputs:</label>
+              <input type="text" class="form-control" id="outputnums" name="outputnums" placeholder="Enter outputnums">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="rulenums">Enter the number of your rules:</label>
+              <input type="text" class="form-control" id="rulenums" name="rulenums" placeholder="Enter rulenums">
+            </div>
+            <div class="form-group col-md-3">
+              <input type="button" class="btn btn-primary" id="registerNums" value="register nums">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row" id="2">
+
+        </div>
+
+        <div class="form-row" id="3">
+
+        </div>
+
+        <div class="form-row" id="4">
+          <div class="form-row col-md-12">
+            <div class="form-group col-md-3">
+              <button type="submit" class="btn btn-primary" id="submit" formtarget="_blank">Submit</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <footer></footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      
+      $(document).ready(function(){
+        $("#registerNums").click(function(){
+          var inputnums = parseInt($("#inputnums").val());
+          console.log(inputnums);
+          var outputnums = parseInt($("#outputnums").val());
+          console.log(outputnums);
+          var rulenums = parseInt($("#rulenums").val());
+          for(var i=1; i < inputnums + 1; i++){
+            var inputmems =
+            '<div class="form-row">'+
+              '<div class="form-row">'+
+                '<div class="form-group col-md-3">'+
+                  '<label for="inputmems">Enter the number of your input'+ i +' membership functions:</label>'+
+                  '<input type="text" class="form-control" id="inputmems" name="inputmems" placeholder="Enter inputmems">'+
+                '</div>'+
+                '<div class="form-group col-md-3">'+
+                  '<label for="inputname">Enter the name of your input'+ i +' membership functions:</label>'+
+                  '<input type="text" class="form-control inputname" name="inputname" placeholder="Enter inputname">'+
+                '</div>'+
+                '<div class="form-group col-md-3">'+
+                  '<label for="inputrange">Enter the range of your input'+ i +' membership functions:</label>'+
+                  '<input type="text" class="form-control" id="inputrange" name="inputrange" placeholder="Enter inputrange">'+
+                '</div>'+
+                '<div class="form-group col-md-3">'+
+                  '<input type="button" class="btn btn-primary registerInMems" value="register mems">'+
+                '</div>'+
+              '</div>'+
+              '<div class="form-row mem">'+
+              '</div>'+
+            '</div>';
+            $("#2").append(inputmems);
+          }
+
+            for(var i=1; i < outputnums + 1; i++){
+            var outputmems =
+            '<div class="form-row">'+
+              '<div class="form-row">'+
+                '<div class="form-group col-md-3">'+
+                  '<label for="outputmems">Enter the number of your output'+ i +' membership functions:</label>'+
+                  '<input type="text" class="form-control" id="outputmems" name="outputmems" placeholder="Enter outputmems">'+
+                '</div>'+
+                '<div class="form-group col-md-3">'+
+                  '<label for="outputname">Enter the name of your output'+ i +' membership functions:</label>'+
+                  '<input type="text" class="form-control outputname" name="outputname" placeholder="Enter outputname">'+
+                '</div>'+
+                '<div class="form-group col-md-3">'+
+                  '<label for="outputrange">Enter the range of your output'+ i +' membership functions:</label>'+
+                  '<input type="text" class="form-control" id="outputrange" name="outputrange" placeholder="Enter outputrange">'+
+                '</div>'+
+                '<div class="form-group col-md-3">'+
+                  '<input type="button" class="btn btn-primary registerOutMems" value="register mems">'+
+                '</div>'+
+              '</div>'+
+              '<div class="form-row mem">'+
+              '</div>'+
+            '</div>';
+            $("#2").append(outputmems);
+          }
+
+          for (var i=1; i < rulenums +1; i++){
+              var rules =
+              '<div class="form-row col-md-12">'+
+                '<div class="form-row col-md-12">'+
+                  '<div class="form-group col-md-12">'+
+                    '<label for="rule">Enter the rule'+ i +' :</label>'+
+                    '<input type="text" class="form-control" id="rule" name="rule'+ i +'" placeholder="Enter rule">'+
+                '</div>'+
+                '</div>'+
+              '</div>';
+              $("#3").append(rules);
+            }
+
+        });
+        $("#2").on("click",".registerInMems",function(){
+          var inputmems = parseInt($(this).parent().parent().find("#inputmems").val())
+          /*console.log(inputmems)*/
+          /*var inputnameArray = [];
+          $('.inputname').each(function () {
+             
+            console.log("input name : " + $(this).val());
+            inputnameArray.push($(this).val());
+          });*/
+
+          console.log("input name : " + $(this).parent().parent().find(".inputname").val());
+          var inputdata = $(this).parent().parent().find(".inputname").val();
+          for(i=1;i < inputmems+1;i++){
+          //alert($(this).parent().parent().parent().find(".mem").html());
+          $(this).parent().parent().parent().find(".mem").append('<div class="form-group col-md-4">'+
+            '<label for="memname">Enter the name of your input membership function:</label>'+
+            '<input type="text" class="form-control" id="memname" name="meminputname[' + inputdata + ']['+i+']" placeholder="Enter'+ 'memname">'+
+          '</div>'+
+          '<div class="form-group">'+
+            '<label for="memtype">memtype</label>'+
+            '<select class="form-control" id="memtype" name="meminputtype[' + inputdata + ']['+i+']">'+
+              '<option>trapmf</option>'+
+              '<option>trimf</option>'+
+            '</select>'+
+          '</div>'+
+          '<div class="form-group col-md-4">'+
+            '<label for="memamount">Enter the amount of your input membership function:</label>'+
+            '<input type="text" class="form-control" id="memamount" name="meminputamount[' + inputdata + ']['+i+']" placeholder="Enter memamount">'+
+          '</div>');
+        }
+        });
+
+          $("#2").on("click",".registerOutMems",function(){
+          var outputmems = parseInt($(this).parent().parent().find("#outputmems").val())
+          console.log(outputmems)
+          var outputdata = $(this).parent().parent().find(".outputname").val();
+          for(i=1;i < outputmems+1;i++){
+          //alert($(this).parent().parent().parent().find(".mem").html());
+          $(this).parent().parent().parent().find(".mem").append('<div class="form-group col-md-4">'+
+            '<label for="memname">Enter the name of your output membership function:</label>'+
+            '<input type="text" class="form-control" id="memname" name="memoutputname[' + outputdata + ']['+i+']" placeholder="Enter'+ 'memname">'+
+          '</div>'+
+          '<div class="form-group">'+
+            '<label for="memtype">memtype</label>'+
+            '<select class="form-control" id="memtype" name="memoutputtype[' + outputdata + ']['+i+']">'+
+              '<option>trapmf</option>'+
+              '<option>trimf</option>'+
+            '</select>'+
+          '</div>'+
+          '<div class="form-group col-md-4">'+
+            '<label for="memamount">Enter the amount of your output membership function:</label>'+
+            '<input type="text" class="form-control" id="memamount" name="memoutputamount[' + outputdata + ']['+i+']" placeholder="Enter memamount">'+
+          '</div>');
+        }
+        });
+
+        
+      });
+    </script>
+  </body>
+</html>
