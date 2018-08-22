@@ -1,12 +1,17 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
-class Calculate(forms.Form):
-	mark = forms.IntegerField(label='mark')
-	study = forms.IntegerField(label='study')
-	hardness = forms.IntegerField(label='hardness')
-	sysmark = forms.IntegerField(label='systemic mark')
 
-class Mark(forms.Form):
-	hesaban = forms.IntegerField(label='hesaban')
-	hendese = forms.IntegerField(label='hendese')
-	arabi = forms.IntegerField(label='arabi')
+class SignUpForm(UserCreationForm):
+    first_name = forms.CharField(help_text='enter your first name',label="firstname")
+    last_name = forms.CharField(help_text='enter your last name')
+    email_address = forms.CharField(help_text='enter your email address')
+
+    class Meta:
+        model = User
+        fields = ('username', 'first_name', 'last_name', 'email_address', 'password1', 'password2', )
+        labels = {
+        	'first_name': 'First',
+        	'email_address': 'Email',
+        }
