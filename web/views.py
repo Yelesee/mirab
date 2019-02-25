@@ -18,8 +18,8 @@ from .forms import SignUpForm
 from django.http import HttpResponse, HttpResponseRedirect
 
 #from .forms import Calculate
-#from fuzzy import fuzzy
 from fuzzy import *
+from web.fuzzylib.fuzzyXml.xmlFirst import dataToXml
 from lists import *
 def home(request):
     return render(request, 'home.html')
@@ -44,13 +44,14 @@ def signup(request):
 
 @login_required
 @csrf_exempt
-def form(request):
-    return render(request, 'form.html')
+def xmlForm(request):
+    return render(request, 'xmlForm.html')
 
 @login_required
 @csrf_exempt
-def response(request):
+def xmlFile(request):
     all = request.POST
     data = dict(all)
-    context = {'data':data}
-    return render(request, 'response.html', context) 
+    xmlFile = dataToXMl(data)
+    context = {'data':xmlFile}
+    return render(request, 'xmlFile.html', context) 

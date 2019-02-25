@@ -8,6 +8,6 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout, {'next_page': 'login'}, name='logout'),
     url(r'^signup/$', views.signup, name='signup'),
     url(r'^logout/$', views.logout, name='logout'),
-    url(r'^form/$', views.form, name="form"),
-    url(r'^response/$', views.response, name="response"),
+    url(r'^xmlForm/$', views.xmlForm, name="xmlForm"),
+    url(r'^xmlFile/$', views.xmlFile, name="xmlFile"),
 ]
